@@ -1,0 +1,46 @@
+{% extends 'frontend.html.twig' %}
+
+{% block title %}Utilidades
+{% endblock %}
+
+{% block body %}
+    <h1>Consumir API Rest con HTTP Client</h1>
+    <p>(composer require symfony/http-client)</p>
+     {% for message in app.flashes('mensaje') %}
+    <div class="alert alert-{{ app.flashes('css')[0] }} alert-dismissible fade show" role="alert">
+        {{ message }} 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+    <p class="d-flex justify-content-end">
+            <i class="fas fa-check"></i>
+            Crear</a>
+    </p>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dato in response.toArray() %}
+                    <tr>
+                        <td>{{ dato.id }}</td>
+                        <td>{{ dato.nombre }}</td>
+                        <td style="text-align:center;">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}
