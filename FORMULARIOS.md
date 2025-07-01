@@ -8,7 +8,6 @@
 
 ### Sin base de datos ni entidades de por medio
 
-
 ~~~
 <?php
 
